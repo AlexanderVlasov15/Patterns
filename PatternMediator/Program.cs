@@ -16,6 +16,17 @@ namespace PatternMediator
             var prod = _mediator.Send(new GetProductByIdQuery(5));
             var prodList = _mediator.Send(new GetProductsListQuery());
 
+            Console.WriteLine($"Id: {prod.Id }");
+            Console.WriteLine($"Name: {prod.Name }");
+            Console.WriteLine($"Price: {prod.Price }");
+
+            foreach (var product in prodList)
+            { 
+                Console.WriteLine($"Id: {product.Id }");
+                Console.WriteLine($"Name: {product.Name }");
+                Console.WriteLine($"Price: {product.Price }");
+            }
+
             Console.ReadKey();
 
         }
