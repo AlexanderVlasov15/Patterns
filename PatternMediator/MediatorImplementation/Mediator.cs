@@ -1,6 +1,6 @@
-﻿using PatternMediator.MediatorImplementation.Interfaces;
+﻿using System;
 using System.Reflection;
-using System;
+using PatternMediator.MediatorImplementation.Interfaces;
 
 namespace PatternMediator.MediatorImplementation
 {
@@ -32,7 +32,9 @@ namespace PatternMediator.MediatorImplementation
                     }     
                 }
                 if (result != null)
+                {
                     break;
+                }
             }
             return (TResponse)result;
         }

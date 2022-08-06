@@ -1,7 +1,7 @@
 ﻿using PatternMediator.Common.Models;
 using PatternMediator.MediatorImplementation.Interfaces;
 
-namespace PatternMediator.Common.Queries.GetProductById
+namespace PatternMediator.Common.Queries
 {
     public class GetProductByIdQuery : IRequest<ProductDTO>
     {

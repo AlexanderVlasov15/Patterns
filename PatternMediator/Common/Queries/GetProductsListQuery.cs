@@ -1,8 +1,8 @@
-﻿using PatternMediator.Common.Models;
+﻿using System.Collections.Generic;
+using PatternMediator.Common.Models;
 using PatternMediator.MediatorImplementation.Interfaces;
-using System.Collections.Generic;
 
-namespace PatternMediator.Common.Queries.GetProductsList
+namespace PatternMediator.Common.Queries
 {
     public class GetProductsListQuery : IRequest<IEnumerable<ProductDTO>>
     {
