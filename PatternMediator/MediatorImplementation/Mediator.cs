@@ -17,15 +17,18 @@ namespace PatternMediator.MediatorImplementation
             {
                 var baseIRequestHandler = typeof(IRequestHandler);
 
-                var interfaces = item.GetInterface(baseIRequestHandler.Name);
-                if (interfaces != null && interfaces == baseIRequestHandler && item.IsClass)
+                //Знаходимо клас який реалізує IRequestHandler
+                if (item.GetInterface(baseIRequestHandler.Name) == baseIRequestHandler && item.IsClass)
                 {
+                    //Отримуємо у цьому класі метод Handler
                     var methodHandler = item.GetMethod("Handler");
                     foreach (var param in methodHandler.GetParameters())
                     {
-                        if(param.ParameterType == request.GetType())
+                        //Дивимось чи відповідає параметр який ми передали в метод Send
+                        if (param.ParameterType == request.GetType())
                         {
                             var classHandler = Activator.CreateInstance(item);
+                            //Викликаємо метод Handler і передаемо йому параметр і отримуємо результат
                             result = methodHandler.Invoke(classHandler, new object[] { request });
                             break;
                         }
